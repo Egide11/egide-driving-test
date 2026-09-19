@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egide Driving Test</title>
+<style>
+:root{--navy:#062b58;--blue:#0d56b5;--yellow:#ffd21f;--green:#16a085;--bg:#f5f8fc;--text:#10294d;--muted:#64748b;--danger:#dc3545}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--bg)}
+button{font:inherit;cursor:pointer}.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:750}.primary{background:var(--blue);color:white}.yellow{background:var(--yellow);color:var(--navy)}.outline{background:white;color:var(--blue);border:1px solid var(--blue)}
+.nav{position:sticky;top:0;z-index:20;background:white;border-bottom:1px solid #e5eaf1;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 5%}
+.brand{display:flex;align-items:center;gap:9px;font-weight:850;font-size:23px;color:var(--navy)}.brand small{display:block;color:var(--blue);font-size:15px;line-height:1}.logo{width:45px;height:45px;border:4px solid var(--navy);border-radius:50%;display:grid;place-items:center}
+.navlinks{display:flex;gap:20px}.navlinks button{border:0;background:none;color:var(--text);font-weight:650}.navlinks button.active{color:var(--blue);border-bottom:3px solid var(--yellow);padding-bottom:5px}
+.nav-actions{display:flex;gap:8px;align-items:center}.select{padding:10px;border:1px solid #d8e0eb;border-radius:10px;background:white}
+.hero{min-height:450px;padding:70px 7%;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#062b58f5,#062b58b5,#062b5840),linear-gradient(120deg,#1d6db8,#0a345f)}
+.hero-content{max-width:650px}.eyebrow{font-size:13px;letter-spacing:1.5px;font-weight:800;color:var(--yellow)}h1{font-size:clamp(42px,6vw,72px);line-height:1.05;margin:15px 0}h2{margin:8px 0 14px}.hero p{font-size:18px;color:#eaf3ff;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.section{padding:48px 6%;max-width:1300px;margin:auto}.features{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;background:white;max-width:none}.feature{display:flex;gap:10px}.icon{width:42px;height:42px;border-radius:12px;background:var(--blue);color:white;display:grid;place-items:center;flex-shrink:0}.feature b{display:block}.feature span{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:white;border-radius:18px;padding:25px;box-shadow:0 8px 25px #10294d0b;border:1px solid #e8eef6}.card h3{margin:8px 0}.muted{color:var(--muted)}
+.hidden{display:none!important}.screen{min-height:65vh}.test-top{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}.progress{height:9px;background:#e4ebf4;border-radius:99px;overflow:hidden;margin:18px 0}.progress>div{height:100%;background:var(--blue);transition:.2s}.answers{display:grid;gap:12px;margin:22px 0}.answer{padding:15px;text-align:left;background:white;border:1px solid #d8e2ef;border-radius:12px;color:var(--text)}.answer.selected{border:2px solid var(--blue);background:#eef5ff}.answer.correct{border:2px solid var(--green);background:#eafaf5}.answer.wrong{border:2px solid var(--danger);background:#fff0f0}
+.test-footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.badge{display:inline-block;padding:5px 10px;border-radius:99px;background:#eaf2ff;color:var(--blue);font-size:12px;font-weight:800}
+.result{text-align:center}.score{font-size:64px;font-weight:900;color:var(--blue)}.price{font-size:35px;font-weight:900}.price-card{border-top:5px solid var(--blue)}
+.form{display:grid;gap:12px;max-width:460px}.form input,.form select{padding:13px;border:1px solid #d6dfeb;border-radius:10px;width:100%}
+.footer{background:var(--navy);color:#dbeafe;padding:28px 6%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:950px){.navlinks{display:none}.features{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+@media(max-width:560px){.nav{padding:12px 4%}.brand{font-size:18px}.brand small{font-size:12px}.hero{padding:50px 6%}.features{grid-template-columns:1fr}.section{padding:32px 5%}.card{padding:20px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="brand"><div class="logo">🚗</div><div>Egide<small>Driving Test</small></div></div>
+  <nav class="navlinks">
+    <button data-page="home" class="active">Home</button><button data-page="learn">Learn</button><button data-page="test">Practice Test</button><button data-page="pricing">Pricing</button><button data-page="about">About</button>
+  </nav>
+  <div class="nav-actions"><select id="language" class="select"><option value="en">English</option><option value="rw">Kinyarwanda</option></select><button class="btn primary" onclick="showPage('account')">Login</button></div>
+</header>
+
+<main>
+<section id="home" class="page">
+  <div class="hero"><div class="hero-content"><div class="eyebrow" data-en="RWANDA ROAD TRAFFIC LEARNING" data-rw="KWIGA AMATEGEKO Y'UMUHANDA">RWANDA ROAD TRAFFIC LEARNING</div><h1>Egide Driving Test</h1><h2 data-en="Learn the road rules. Practice with confidence." data-rw="Wige amategeko y'umuhanda. Witoze wizeye.">Learn the road rules. Practice with confidence.</h2><p data-en="Prepare for your driving theory test with learning materials, practice questions and instant results." data-rw="Witegure ikizamini cy'amategeko y'umuhanda ukoresheje amasomo, ibibazo byo kwitoza n'amanota ahita aboneka.">Prepare for your driving theory test with learning materials, practice questions and instant results.</p><div class="actions"><button class="btn yellow" onclick="startTest()" data-en="Start Practice Test →" data-rw="Tangira Ikizamini →">Start Practice Test →</button><button class="btn outline" onclick="showPage('learn')" data-en="Study Materials" data-rw="Amasomo">Study Materials</button></div></div></div>
+  <section class="section features">
+    <div class="feature"><div class="icon">🛡</div><div><b>Road Rules</b><span>Learn key regulations</span></div></div><div class="feature"><div class="icon">▣</div><div><b>Any Device</b><span>Phone, tablet or computer</span></div></div><div class="feature"><div class="icon">▥</div><div><b>Instant Results</b><span>See your score</span></div></div><div class="feature"><div class="icon">▤</div><div><b>Payment Ready</b><span>Integration planned</span></div></div><div class="feature"><div class="icon">◉</div><div><b>Support</b><span>Help when needed</span></div></div>
+  </section>
+  <section class="section"><div class="grid"><div class="card"><span class="badge">WELCOME</span><h2>Your success on the road starts here</h2><p class="muted">Study, practice and review your progress in one simple platform designed for driving learners.</p><button class="btn primary" onclick="showPage('learn')">Explore lessons</button></div><div class="card"><h3>Quick access</h3><p class="muted">Choose what you want to do today.</p><div class="actions"><button class="btn outline" onclick="showPage('learn')">📖 Learn</button><button class="btn outline" onclick="startTest()">☑ Test</button><button class="btn outline" onclick="showPage('results')">🏅 Results</button></div></div></div></section>
+</section>
+
+<section id="learn" class="page hidden screen section"><span class="badge">LEARNING</span><h2>Study Materials</h2><p class="muted">Demo learning topics. Confirm all content against the latest official Rwanda traffic regulations before commercial launch.</p><div class="grid" id="lessonGrid"></div></section>
+
+<section id="test" class="page hidden screen section">
+  <div class="test-top"><div><span class="badge">PRACTICE MODE</span><h2 id="testTitle">Practice Test</h2><p class="muted" id="counter"></p></div><div class="card" style="padding:14px"><b>⏱ <span id="timer">10:00</span></b></div></div>
+  <div class="progress"><div id="bar" style="width:0%"></div></div>
+  <div class="card"><h2 id="question"></h2><div id="answers" class="answers"></div><div id="feedback" class="muted"></div><div class="test-footer"><button class="btn outline" onclick="previousQuestion()">← Previous</button><button class="btn primary" id="nextBtn" onclick="nextQuestion()">Next →</button></div></div>
+</section>
+
+<section id="results" class="page hidden screen section"><div class="card result"><span class="badge">RESULTS</span><h2>Your Practice Result</h2><div class="score" id="score">0%</div><p id="resultText" class="muted"></p><div class="actions" style="justify-content:center"><button class="btn primary" onclick="startTest()">Try Again</button><button class="btn outline" onclick="showPage('home')">Home</button></div></div></section>
+
+<section id="pricing" class="page hidden screen section"><span class="badge">PRICING</span><h2>Choose your learning plan</h2><p class="muted">These are illustrative plans. Real payment processing is not connected in this demo.</p><div class="grid"><div class="card price-card"><h3>Free Practice</h3><div class="price">0 RWF</div><p class="muted">Selected demo questions and learning topics.</p><button class="btn outline" onclick="startTest()">Try Free Test</button></div><div class="card price-card"><h3>Full Access</h3><div class="price">TBD</div><p class="muted">Planned: full question bank, progress tracking and premium materials.</p><button class="btn primary" onclick="alert('Payment integration will be added after choosing a payment provider.')">Request Access</button></div></div></section>
+
+<section id="about" class="page hidden screen section"><div class="card"><span class="badge">ABOUT</span><h2>About Egide Driving Test</h2><p class="muted">Egide Driving Test is a learning and practice platform concept for people preparing for driving theory examinations in Rwanda. The platform supports English and Kinyarwanda interfaces.</p><h3>Planned next integrations</h3><ul><li>Verified question bank and explanations</li><li>User accounts and progress history</li><li>Rwanda mobile-money payment provider</li><li>Admin dashboard for managing questions</li><li>Secure online database and hosting</li></ul></div></section>
+
+<section id="account" class="page hidden screen section"><div class="card"><h2>Account</h2><p class="muted">Demo account screen. Authentication and database connection are not yet active.</p><form class="form" onsubmit="event.preventDefault();alert('Demo only: account service will be connected in the next backend stage.');"><input type="email" placeholder="Email address" required><input type="password" placeholder="Password" required><button class="btn primary">Continue</button></form></div></section>
+</main>
+<footer class="footer"><div><b>🚗 Egide Driving Test</b><br>Safe Drivers • Safer Roads • A Better Rwanda</div><div>© 2026 Egide Driving Test • MVP Demo</div></footer>
+
+<script>
+const questions=[
+{en:"What should a driver do before changing lanes?",rw:"Umushoferi agomba gukora iki mbere yo guhindura umurongo?",options:{en:["Check mirrors and blind spot, then signal","Accelerate without checking","Close the eyes briefly","Sound the horn only"],rw:["Kureba mu ndorerwamo no mu gice kitagaragara, hanyuma agatanga ikimenyetso","Kwihutisha atabanje kureba","Gufunga amaso akanya gato","Gukoresha klakson gusa"]},correct:0,explain:"Check that the movement is safe and signal appropriately."},
+{en:"What does a red traffic light generally require?",rw:"Itara ritukura ryo ku muhanda risaba iki muri rusange?",options:{en:["Stop","Drive faster","Park in the intersection","Ignore it at night"],rw:["Guhagarara","Kwihuta","Gupakira hagati mu masangano","Kuryirengagiza nijoro"]},correct:0,explain:"A red light generally means stop. Follow the applicable road rules."},
+{en:"Why is a seat belt important?",rw:"Kuki umukandara w'umutekano ari ingenzi?",options:{en:["It helps reduce injury risk","It increases fuel consumption","It replaces careful driving","It is only for passengers"],rw:["Ufasha kugabanya ibyago byo gukomereka","Wongera ikoreshwa rya lisansi","Usimbura gutwara witonze","Ni uw'abagenzi gusa"]},correct:0,explain:"Seat belts help protect occupants during sudden stops or collisions."},
+{en:"What should you do when approaching a pedestrian crossing?",rw:"Wakora iki wegereye aho abanyamaguru bambukira?",options:{en:["Reduce speed and give way when required","Speed up","Overtake every vehicle","Use your phone"],rw:["Kugabanya umuvuduko no guha inzira igihe bisabwa","Kwihuta","Kurenza imodoka zose","Gukoresha telefoni"]},correct:0,explain:"Approach cautiously and give pedestrians the required priority."},
+{en:"Using a phone while driving can:",rw:"Gukoresha telefoni utwaye bishobora:",options:{en:["Distract the driver","Improve concentration","Make braking faster","Replace mirrors"],rw:["Kuyobya ibitekerezo by'umushoferi","Kongera ubushobozi bwo kwita ku muhanda","Gutuma feri ikora vuba","Gusimbura indorerwamo"]},correct:0,explain:"Phone use can distract drivers and increase crash risk."}
+];
+const lessons=[
+["Road signs","Learn warning, regulatory and information signs."],["Safe driving","Speed, following distance, observation and attention."],["Vehicle control","Braking, steering, mirrors and signals."],["Road users","Pedestrians, cyclists and other vehicles."],["Responsible driving","Seat belts, distraction and considerate driving."]
+];
+let lang="en",index=0,selected={},seconds=600,timerId=null,finished=false;
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.getElementById('language').addEventListener('change',e=>{lang=e.target.value;translate();if(!document.getElementById('test').classList.contains('hidden'))renderQuestion();});
+function translate(){document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang]);}
+function renderLessons(){document.getElementById('lessonGrid').innerHTML=lessons.map((x,i)=>`<div class="card"><div class="icon">${['🚦','🛣','🚘','🚶','🛡'][i]}</div><h3>${x[0]}</h3><p class="muted">${x[1]}</p><span class="badge">Lesson ${i+1}</span></div>`).join('');}
+function startTest(){index=0;selected={};finished=false;seconds=600;clearInterval(timerId);timerId=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timerId);finishTest();}},1000);showPage('test');renderQuestion();}
+function updateTimer(){document.getElementById('timer').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');}
+function renderQuestion(){const q=questions[index];document.getElementById('counter').textContent=`Question ${index+1} of ${questions.length}`;document.getElementById('bar').style.width=((index+1)/questions.length*100)+'%';document.getElementById('question').textContent=lang==='en'?q.en:q.rw;document.getElementById('answers').innerHTML=q.options[lang].map((a,i)=>`<button class="answer ${selected[index]===i?'selected':''}" onclick="choose(${i})">${String.fromCharCode(65+i)}. ${a}</button>`).join('');document.getElementById('feedback').textContent='';document.getElementById('nextBtn').textContent=index===questions.length-1?'Finish':'Next →';}
+function choose(i){selected[index]=i;renderQuestion();document.querySelectorAll('.answer')[i].classList.add('selected');}
+function previousQuestion(){if(index>0){index--;renderQuestion();}}
+function nextQuestion(){if(index===questions.length-1){finishTest();return}index++;renderQuestion();}
+function finishTest(){clearInterval(timerId);let correct=questions.reduce((n,q,i)=>n+(selected[i]===q.correct?1:0),0);let pct=Math.round(correct/questions.length*100);document.getElementById('score').textContent=pct+'%';document.getElementById('resultText').textContent=`You answered ${correct} out of ${questions.length} correctly. Review the topics and try again.`;showPage('results');}
+renderLessons();translate();updateTimer();
+</script>
+</body>
+</html>
